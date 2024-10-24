@@ -10,13 +10,17 @@ export default {
         './resources/js/**/*.vue',
     ],
 
-    theme: {
+    /*theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
-    },
+    },*/
 
-    plugins: [forms],
+    plugins: [forms, require("daisyui"), require("@tailwindcss/typography")],
+
+    daisyui: {
+        themes: ["winter", "dark", "garden"],
+    },
 };
