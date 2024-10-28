@@ -22,6 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    /*Route::get('/title-page', function () {
+        return Inertia::render('TitlePage');
+    })->name('title-page');*/
 });
+
+Route::get('/title-page', function () {
+   return Inertia::render('TitlePage');
+})->middleware(['auth', 'verified'])->name('title_page');
 
 require __DIR__.'/auth.php';
